@@ -1,20 +1,25 @@
-.App {
-  text-align: center;
+/* Estilo base para la aplicacion, alineacion a la izquierda y un poco de relleno*/
+.app {
+  text-align: left;
+  padding: 20px;
 }
 
+/* Estilo para elm logo de la aplicacion, ajustando su altura y desactivando los eventos del puntero*/
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
 
+/* Animacion para el logo (solo si el usuario nomprefiere reducir movimientos)*/
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+    animation: App-logo-spin infinite 20s linear; /* Rotacion infinita duirante 20 segundos*/
   }
 }
 
+/* Estilo para el encabezado principal de la aplicacion*/
 .App-header {
-  background-color: #282c34;
+  background-color: #aac1d8;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -24,15 +29,90 @@
   color: white;
 }
 
+/* Estilos para enlaces especificos dentro de la aplicacion*/
 .App-link {
   color: #61dafb;
 }
 
+/* DEfinicion de la animacion para rotar el logo*/
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
+
+/* Estilo para centrar un formulario en la pantalla*/ 
+.centrar-formulario {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  background-color: #f5f5f5;
+  padding: 20px;
+}
+
+/* Estilo base del formulario*/
+.formulario {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  width: 400px;
+}
+
+/* Estilo para los contenedores de los campos del formulario*/
+.formulario div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+/* Estilo para las etiquetas del formulario */
+.formulario label {
+  margin-right: 8px;
+  width: 150px;
+  text-align: right;
+  font-weight: bold;
+}
+
+/* Estilo para los campos de texto, correo y contraseña*/
+.formulario input[type="text"],
+.formulario input[type="email"],
+.formulario input[type="password"] {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* Estilo para el boton del formulario*/
+.formulario button {
+  background-color: #dae3ec;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-top: 10px;
+  align-self: flex-end;
+}
+
+/* Estilo para el boton cuando se pasa el cursor por encima*/
+.formulario button:hover {
+  background-color: #b6cae6;
+}
+
+.carrusel-contenedor {
+  max-width: 800px;
+  margin: 0 auto;
+}
+

@@ -1,0 +1,135 @@
+/* Estilo base del header */
+.custom-header {
+  background-color: #ADD8E6;
+  color: white;
+  padding: 10px;
+}
+
+.centrar-imagen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+
+.logo {
+  height: 700px;
+  max-height: 700px;
+}
+
+.nav-pills {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 15px;
+}
+
+.nav-item {
+  position: relative;
+}
+
+/* Submenú */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  padding: 10px 0;
+  list-style: none;
+  margin: 0;
+  z-index: 1000;
+}
+
+.dropdown-menu li a {
+  color: rgb(88, 78, 78);
+  text-decoration: none;
+  padding: 5px 15px;
+  display: block;
+}
+
+
+.dropdown-menu li a:hover {
+  background-color: #838080;
+}
+
+/* Mostrar el submenú al pasar el mouse */
+.nav-item.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* Estilo del enlace principal */
+.nav-link {
+  text-decoration: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  color: white;
+}
+
+.nav-link:hover {
+  background-color: #555;
+}
+
+/* Cambiar el color del header */
+.navbar,
+header {
+  background-color: #9bb0c4;
+  color: #FFFFFF;
+  /* Texto blanco */
+  padding: 10px;
+}
+
+/* Cambiar el color de los enlaces en el header */
+.nav-link {
+  color: #FFFFFF;
+  /* Texto blanco en enlaces */
+}
+
+.nav-link:hover {
+  color: #FFD700;
+  /* Amarillo dorado al pasar el mouse */
+}
+
+/* Estilos del fondo de toda la pantalla */
+body {
+  background-color: white;
+  /* Fondo beige claro */
+  color: #726060;
+  /* Texto gris oscuro */
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Botones o enlaces destacados */
+button,
+.btn {
+  background-color:#726060;
+  /* Verde menta */
+  color: #FFFFFF;
+  /* Texto blanco */
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+
+/* Elementos Secundarios */
+.secondary-element {
+  background-color: #FFFACD;
+  /* Amarillo Pastel */
+  color: #5d5dcc;
+  /* Azul Marino */
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.custom-button {
+  background-color: #ff6347; /* Tu color deseado */
+  border-color: #ff6347; /* Color del borde */
+  color: white; /* Color del texto */
+  font-size: 20px;
+  padding: 10px 20px;
+}

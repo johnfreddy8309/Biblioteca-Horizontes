@@ -1,12 +1,17 @@
+/* Estilo global para el cuerpo de la página */
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
+
+    /* Define una lista de fuentes, usando primero las específicas del sistema y 
+       cayendo a fuentes comunes si no están disponibles */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Estilo para elementos <code> (bloques de código) */
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

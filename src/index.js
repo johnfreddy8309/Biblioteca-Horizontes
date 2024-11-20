@@ -1,17 +1,22 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import 'bootstrap/dist/css/bootstrap.main.css';
-const root = ReactDOM.createRoot(document.getElementById('root'));
+// Importamos las dependencias necesarias
+import React from 'react'; // Biblioteca principal de React
+import ReactDOM from 'react-dom/client'; // Herramientas para renderizar React en el DOM
+import './index.css'; // Archivo de estilos globales
+import App from './App'; // Componente principal de la aplicación
+import reportWebVitals from './reportWebVitals'; // Herramienta para medir el rendimiento de la aplicación
+import 'bootstrap/dist/css/bootstrap.min.css'; // Estilos de Bootstrap para usar componentes y clases predefinidas
+
+// Creamos el punto de entrada para renderizar nuestra aplicación
+const root = ReactDOM.createRoot(document.getElementById('root')); // Selecciona el elemento con id "root" en el archivo HTML
+
+// Renderizamos la aplicación dentro del modo estricto de React
 root.render(
   <React.StrictMode>
-    <App />
+    <App /> {/* Componente principal que contiene toda la lógica y componentes de la aplicación */}
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// Ejecuta la función para medir el rendimiento (opcional)
+reportWebVitals(); 
+// Esta función puede ser utilizada para registrar métricas de rendimiento, como tiempos de carga
+// Es útil en entornos de desarrollo para optimizar el rendimiento
