@@ -19,7 +19,7 @@
 
 /* Estilo para el encabezado principal de la aplicacion*/
 .App-header {
-  background-color: #aac1d8;
+  background-color: #003366;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -96,7 +96,7 @@
 
 /* Estilo para el boton del formulario*/
 .formulario button {
-  background-color: #dae3ec;
+  background-color: #003366;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -108,7 +108,7 @@
 
 /* Estilo para el boton cuando se pasa el cursor por encima*/
 .formulario button:hover {
-  background-color: #b6cae6;
+  background-color: #0055cc;
 }
 
 .carrusel-contenedor {

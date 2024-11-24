@@ -1,10 +1,8 @@
-import React, { Component } from 'react'; // Importa React y la clase base Component
+import React, { Component } from 'react';
 
-// Componente de clase para el registro de usuario
 class RegistroUsuario extends Component {
   constructor(props) {
-    super(props); // Llama al constructor de la clase padre
-    // Define el estado inicial del formulario con los campos vacíos
+    super(props);
     this.state = {
       tipo_identificacion_id: '',
       identificacion: '',
@@ -18,35 +16,54 @@ class RegistroUsuario extends Component {
       municipio_id: '',
       estado: ''
     };
+
+    // Asegúrate de enlazar los métodos en el constructor
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   // Maneja cambios en los inputs del formulario
-  handleChange = (event) => {
-    const { name, value } = event.target; // Extrae el nombre y valor del campo actualizado
-    this.setState({ [name]: value }); // Actualiza el estado dinámicamente basado en el nombre del campo
-  };
+  handleChange(event) {
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
+  }
 
   // Maneja el envío del formulario
-  handleSubmit = (event) => {
-    event.preventDefault(); // Evita que el formulario recargue la página
-    console.log('Datos del formulario:', this.state); // Imprime los datos del formulario en la consola
-    // Aquí puedes implementar la lógica para enviar los datos al backend
-  };
+  async handleSubmit(event) {
+    event.preventDefault();
+    console.log('Datos del formulario:', this.state);
 
-  // Renderiza el formulario de registro de usuario
+    try {
+      const response = await fetch('http://localhost:3001/registro', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(this.state)
+      });
+
+      if (response.ok) {
+        alert('Usuario registrado exitosamente');
+      } else {
+        alert('Error al registrar el usuario');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('Error de conexión');
+    }
+  }
+
   render() {
     return (
       <div className="centrar-formulario">
-        {/* Formulario centrado con un manejador para el evento "submit" */}
         <form className="formulario" onSubmit={this.handleSubmit}>
-          {/* Cada input se asocia con un campo del estado */}
           <div>
             <label>Tipo Identificación:</label>
             <input
               type="text"
-              name="tipo_identificacion_id" // Nombre del campo
-              value={this.state.tipo_identificacion_id} // Valor actual del estado
-              onChange={this.handleChange} // Maneja los cambios en el input
+              name="tipo_identificacion_id"
+              value={this.state.tipo_identificacion_id}
+              onChange={this.handleChange}
             />
           </div>
           <div>
@@ -88,7 +105,7 @@ class RegistroUsuario extends Component {
           <div>
             <label>Correo Electrónico:</label>
             <input
-              type="email" // Valida automáticamente el formato del correo
+              type="email"
               name="correo_electronico"
               value={this.state.correo_electronico}
               onChange={this.handleChange}
@@ -97,7 +114,7 @@ class RegistroUsuario extends Component {
           <div>
             <label>Contraseña:</label>
             <input
-              type="password" // Oculta los caracteres ingresados
+              type="password"
               name="contraseña"
               value={this.state.contraseña}
               onChange={this.handleChange}
@@ -139,7 +156,6 @@ class RegistroUsuario extends Component {
               onChange={this.handleChange}
             />
           </div>
-          {/* Botón para enviar el formulario */}
           <button type="submit">Registrar</button>
         </form>
       </div>
@@ -147,4 +163,4 @@ class RegistroUsuario extends Component {
   }
 }
 
-export default RegistroUsuario; // Exporta el componente para usarlo en otras partes de la app
+export default RegistroUsuario;
