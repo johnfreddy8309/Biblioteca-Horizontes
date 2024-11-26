@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 class RegistroUsuario extends Component {
   constructor(props) {
     super(props);
+
+    // Define el estado inicial con los campos requeridos para el formulario
     this.state = {
       tipo_identificacion_id: '',
       identificacion: '',
@@ -17,7 +19,7 @@ class RegistroUsuario extends Component {
       estado: ''
     };
 
-    // Asegúrate de enlazar los métodos en el constructor
+    // Enlazar los métodos `handleChange` y `handleSubmit` al contexto de la clase
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -42,18 +44,21 @@ class RegistroUsuario extends Component {
         body: JSON.stringify(this.state)
       });
 
+    // Verificar si la solicitud fue exitosa
       if (response.ok) {
         alert('Usuario registrado exitosamente');
       } else {
         alert('Error al registrar el usuario');
       }
     } catch (error) {
+         // Manejar errores de conexión o problemas inesperados
       console.error('Error:', error);
       alert('Error de conexión');
     }
   }
 
   render() {
+     // Renderizar el formulario
     return (
       <div className="centrar-formulario">
         <form className="formulario" onSubmit={this.handleSubmit}>

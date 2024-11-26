@@ -1,34 +1,37 @@
-// Importamos las dependencias necesarias
-import React from 'react'; // Biblioteca principal de React
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Componente para manejar las rutas
-import ReactDOM from 'react-dom'; // Para renderizar en el DOM
-import Header from './components/Header'; // Componente de encabezado personalizado
-import RegistrarUsuario from './components/RegistrarUsuario'; // Componente para registrar un usuario
-import BuscarGeneroLiterario from './components/BuscarGeneroLiterario'; // Componente para buscar géneros literarios 
-import Recomendaciones from './components/Recomendaciones'; // Componente para recomendaciones
-import Carrusel from './components/Carrusel'; // Componente del carrusel
-import BotonBienvenidos from './components/BotonBienvenidos';
-import './App.css'; // Archivo CSS para estilos globales
-import 'bootstrap/dist/css/bootstrap.min.css'; // Estilos de Bootstrap
+import React from "react";
+import { BrowserRouter as Router, Route, Routes,  } from "react-router-dom";
+import ReactDOM from "react-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
+import libro1 from "./assets/images/libro1.jpg";
 
-// Componente principal de la aplicación
+// Importación de componentes
+import Header from "./components/Header";
+import RegistrarUsuario from "./components/RegistrarUsuario";
+import BuscarGeneroLiterario from "./components/BuscarGeneroLiterario";
+import Recomendaciones from "./components/Recomendaciones";
+import GaleriaLibros from "./components/GaleriaLibros";
+
 function App() {
   return (
-    // Envolvemos la aplicación dentro del enrutador para habilitar la navegación
     <Router>
       <div className="App">
-        {/* Encabezado visible en todas las páginas */}
+        {/* Encabezado global */}
         <Header />
-        <main>
-          <BotonBienvenidos />
-          <Routes>
-            {/* Ruta principal que muestra el carrusel */}
-            <Route path="/" element={<Carrusel />} />
 
-            {/* Rutas adicionales para otras vistas */}
+        {/* Contenido principal */}
+        <main>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Inicio />
+              }
+            />
             <Route path="/registrar-usuario" element={<RegistrarUsuario />} />
             <Route path="/buscar-generos" element={<BuscarGeneroLiterario />} />
             <Route path="/recomendaciones" element={<Recomendaciones />} />
+            <Route path="/galeria-libros" element={<GaleriaLibros />} />
           </Routes>
         </main>
       </div>
@@ -36,12 +39,34 @@ function App() {
   );
 }
 
-// Renderizamos el componente principal en el DOM
+// Componente de inicio
+function Inicio() {
+  return (
+    <div className="bienvenido-container" style={{ textAlign: "center" }}>
+      <h1>Bienvenidos a la Biblioteca Horizontes</h1>
+      <p>Explora nuestro catálogo y encuentra tus géneros favoritos.</p>
+      <img
+        src={libro1}
+        alt="Imagen de un libro"
+        style={{
+          maxWidth: "50%",
+          height: "auto",
+          marginTop: "20px",
+          borderRadius: "10px",
+        }}
+      />
+    
+    </div>
+  );
+}
+
+
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>,
-  document.getElementById('root') // Asegúrate de que 'root' existe en tu archivo HTML
+  document.getElementById("root")
 );
 
 export default App;

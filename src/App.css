@@ -1,61 +1,56 @@
-/* Estilo base para la aplicacion, alineacion a la izquierda y un poco de relleno*/
-.app {
-  text-align: left;
-  padding: 20px;
-}
+/* Estilo base para la aplicación */
+/* Estilo base para la aplicación */
+.App {
+  font-family: 'Arial', sans-serif;
+  background-color: #f5f5f5;
+  margin: 10px; /* Añadir unidad de medida px */
+  padding: 20px; /* Añadir unidad de medida px */
+  text-align: center;
 
-/* Estilo para elm logo de la aplicacion, ajustando su altura y desactivando los eventos del puntero*/
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-/* Animacion para el logo (solo si el usuario nomprefiere reducir movimientos)*/
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear; /* Rotacion infinita duirante 20 segundos*/
-  }
-}
 
-/* Estilo para el encabezado principal de la aplicacion*/
-.App-header {
-  background-color: #003366;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+/* Estilo del encabezado principal */
+.header {
+  background-color: #b3d9ff; /* Color de fondo azul claro */
+  color: #003366; /* Color del texto */
+  padding: 20px 10px; /* Espaciado interno */
+  text-align: center;
+  font-size: 2rem; /* Tamaño del texto */
+  font-weight: bold; /* Negrita */
+  border-bottom: 2px solid #76a6eb; /* Línea decorativa debajo del encabezado */
+}
+/* Botón 'Bienvenido' */
+.btn-bienvenido {
+  display: inline-block;
+  background-color: #4f8fd8; /* Azul Bootstrap */
   color: white;
+  font-size: 1.2rem;
+  padding: 12px 24px;
+  margin: 20px 0;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s ease-in-out;
 }
 
-/* Estilos para enlaces especificos dentro de la aplicacion*/
-.App-link {
-  color: #61dafb;
+
+/* Efecto hover en el botón */
+.btn-bienvenido:hover {
+  background-color: #76a6eb;
 }
 
-/* DEfinicion de la animacion para rotar el logo*/
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-/* Estilo para centrar un formulario en la pantalla*/ 
+/* Estilo para centrar el formulario */
 .centrar-formulario {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 80vh;
+  height: 100vh;
   background-color: #f5f5f5;
   padding: 20px;
 }
 
-/* Estilo base del formulario*/
+/* Estilo base del formulario */
 .formulario {
   display: flex;
   flex-direction: column;
@@ -64,15 +59,16 @@
   background-color: #fff;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
-  width: 400px;
+  width: 100%;
+  max-width: 500px;
 }
 
-/* Estilo para los contenedores de los campos del formulario*/
+/* Estilo para los contenedores de los campos del formulario */
 .formulario div {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 /* Estilo para las etiquetas del formulario */
@@ -83,10 +79,11 @@
   font-weight: bold;
 }
 
-/* Estilo para los campos de texto, correo y contraseña*/
+/* Estilo para los campos de texto, correo y contraseña */
 .formulario input[type="text"],
 .formulario input[type="email"],
-.formulario input[type="password"] {
+.formulario input[type="password"],
+.formulario input[type="tel"] {
   flex: 1;
   padding: 8px;
   border: 1px solid #ccc;
@@ -94,7 +91,7 @@
   box-sizing: border-box;
 }
 
-/* Estilo para el boton del formulario*/
+/* Estilo para el botón del formulario */
 .formulario button {
   background-color: #003366;
   color: white;
@@ -102,17 +99,114 @@
   padding: 10px 20px;
   cursor: pointer;
   border-radius: 4px;
-  margin-top: 10px;
   align-self: flex-end;
 }
 
-/* Estilo para el boton cuando se pasa el cursor por encima*/
+/* Estilo para el botón cuando se pasa el cursor por encima */
 .formulario button:hover {
-  background-color: #0055cc;
+  background-color: #76a6eb;
 }
 
+
+/* Estilo del carrusel */
 .carrusel-contenedor {
-  max-width: 800px;
+  max-width: 700px;
   margin: 0 auto;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Imágenes dentro del carrusel */
+.carrusel-contenedor img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Sección principal */
+main {
+  margin-top: 20px;
+}
+
+/* Estilo para formularios (si usas alguno en las rutas) */
+.formulario {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  max-width: 500px;
+}
+
+.formulario input,
+.formulario button {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.formulario button {
+  background-color: #003366;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.formulario button:hover {
+  background-color: #76a6eb;
+}
+
+/* Enlaces en la aplicación */
+a {
+  color: #61dafb;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Ajuste para pantallas pequeñas */
+@media (max-width: 600px) {
+  .App {
+    padding: 10px;
+  }
+
+  .header {
+    font-size: 1.2rem;
+    padding: 15px;
+  }
+
+ 
+  .carrusel-contenedor {
+    width: 80%;
+  }
+}
+
+.galeria-libros {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+}
+
+.libro-card {
+  text-align: center;
+  max-width: 150px;
+}
+
+.libro-imagen {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
 }
 

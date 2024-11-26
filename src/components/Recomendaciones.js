@@ -1,5 +1,5 @@
 import React from 'react';
-import recomendacionImg from '../images/16406237682276.jpg'; // Asegúrate de que la ruta es correcta
+import recomendacionImg from '../assets/images/16406237682276.jpg'; 
 
 const Recomendaciones = () => {
      return (<div className="centrar-imagen">
