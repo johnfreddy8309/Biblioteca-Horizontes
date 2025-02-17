@@ -1,190 +1,183 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-class RegistroUsuario extends Component {
-  constructor(props) {
-    super(props);
+const RegistroUsuario = () => {
+  const [formState, setFormState] = useState({
+    identificacion: '',
+    tipo_identificacion_id: '',
+    nombre_completo: '',
+    telefono: '',
+    celular: '',
+    correo_electronico: '',
+    contrasena: '',
+    direccion: '',
+    departamento_id: '',
+    municipio_id: ''
+  });
 
-    this.state = {
-      identificacion: '',
-      tipo_identificacion_id: '',
-      nombre_completo: '',
-      telefono: '',
-      celular: '',
-      correo_electronico: '',
-      contraseña: '',
-      direccion: '',
-      departamento_id: '',
-      municipio_id: '',
-      estado: ''
-    };
+  const navigate = useNavigate();
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleChange(event) {
+  const handleChange = (event) => {
     const { name, value } = event.target;
-    this.setState({ [name]: value });
-  }
+    setFormState((prevState) => ({ ...prevState, [name]: value }));
+  };
 
-  async handleSubmit(event) {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log('Datos del formulario:', this.state);
+    console.log('Datos del formulario:', formState);
 
-    // Validación básica de los campos del formulario
-    if (!this.state.identificacion || !this.state.nombre_completo || !this.state.correo_electronico || !this.state.contraseña) {
+    if (
+      !formState.identificacion.trim() ||
+      !formState.tipo_identificacion_id.trim() ||
+      !formState.nombre_completo.trim() ||
+      !formState.telefono.trim() ||
+      !formState.celular.trim() ||
+      !formState.correo_electronico.trim() ||
+      !formState.contrasena.trim() ||
+      !formState.direccion.trim() ||
+      !formState.departamento_id.trim() ||
+      !formState.municipio_id.trim()
+    ) {
       alert('Por favor, completa todos los campos obligatorios.');
       return;
     }
 
     try {
-      const response = await fetch('http://localhost:3000/registro', {
+      const response = await fetch('http://localhost:3001/registrar-usuario', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(this.state)
+        body: JSON.stringify(formState)
       });
 
-      if (response.ok) {
-        const data = await response.json();
-        console.log('Respuesta del servidor:', data);
-        alert('Usuario registrado exitosamente');
-      } else {
-        const errorData = await response.json();
-        console.error('Error en la respuesta:', errorData);
-        alert(`Error al registrar el usuario: ${errorData.message}`);
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
       }
+
+      const data = await response.json();
+      console.log(data);
+      alert('Se ha registrado el usuario correctamente.');
+
+      // Redirigir al usuario a la página de inicio
+      navigate('/');
     } catch (error) {
       console.error('Error en la operación fetch:', error);
       alert('Error de conexión');
     }
-  }
+  };
 
-  render() {
-    return (
-      <div className="centrar-formulario">
-        <form className="formulario" onSubmit={this.handleSubmit}>
-          <div>
-            <label>Identificación:</label>
-            <input
-              type="text"
-              name="identificacion"
-              value={this.state.identificacion}
-              onChange={this.handleChange}
-              required
-            />
-          </div>
+  return (
+    <div className="centrar-formulario">
+      <form className="formulario" onSubmit={handleSubmit}>
+        <div>
+          <label>Identificación:</label>
+          <input
+            type="text"
+            name="identificacion"
+            value={formState.identificacion}
+            onChange={handleChange}
+            required
+          />
+        </div>
 
-          <div>
-            <label>Tipo Identificación:</label>
-            <input
-              type="text"
-              name="tipo_identificacion_id"
-              value={this.state.tipo_identificacion_id}
-              onChange={this.handleChange}
-              required
-            />
-          </div>
+        <div>
+          <label>Tipo Identificación:</label>
+          <input
+            type="text"
+            name="tipo_identificacion_id"
+            value={formState.tipo_identificacion_id}
+            onChange={handleChange}
+            required
+          />
+        </div>
 
-          <div>
-            <label>Nombre Completo:</label>
-            <input
-              type="text"
-              name="nombre_completo"
-              value={this.state.nombre_completo}
-              onChange={this.handleChange}
-              required
-            />
-          </div>
+        <div>
+          <label>Nombre Completo:</label>
+          <input
+            type="text"
+            name="nombre_completo"
+            value={formState.nombre_completo}
+            onChange={handleChange}
+            required
+          />
+        </div>
 
-          <div>
-            <label>Teléfono:</label>
-            <input
-              type="text"
-              name="telefono"
-              value={this.state.telefono}
-              onChange={this.handleChange}
-            />
-          </div>
+        <div>
+          <label>Teléfono:</label>
+          <input
+            type="text"
+            name="telefono"
+            value={formState.telefono}
+            onChange={handleChange}
+          />
+        </div>
 
-          <div>
-            <label>Celular:</label>
-            <input
-              type="text"
-              name="celular"
-              value={this.state.celular}
-              onChange={this.handleChange}
-            />
-          </div>
+        <div>
+          <label>Celular:</label>
+          <input
+            type="text"
+            name="celular"
+            value={formState.celular}
+            onChange={handleChange}
+          />
+        </div>
 
-          <div>
-            <label>Correo Electrónico:</label>
-            <input
-              type="email"
-              name="correo_electronico"
-              value={this.state.correo_electronico}
-              onChange={this.handleChange}
-              required
-            />
-          </div>
+        <div>
+          <label>Correo Electrónico:</label>
+          <input
+            type="email"
+            name="correo_electronico"
+            value={formState.correo_electronico}
+            onChange={handleChange}
+            required
+          />
+        </div>
 
-          <div>
-            <label>Contraseña:</label>
-            <input
-              type="password"
-              name="contraseña"
-              value={this.state.contraseña}
-              onChange={this.handleChange}
-              required
-            />
-          </div>
+        <div>
+          <label>Contraseña:</label>
+          <input
+            type="password"
+            name="contrasena"
+            value={formState.contrasena}
+            onChange={handleChange}
+            required
+          />
+        </div>
 
-          <div>
-            <label>Dirección:</label>
-            <input
-              type="text"
-              name="direccion"
-              value={this.state.direccion}
-              onChange={this.handleChange}
-            />
-          </div>
+        <div>
+          <label>Dirección:</label>
+          <input
+            type="text"
+            name="direccion"
+            value={formState.direccion}
+            onChange={handleChange}
+          />
+        </div>
 
-          <div>
-            <label>Departamento ID:</label>
-            <input
-              type="text"
-              name="departamento_id"
-              value={this.state.departamento_id}
-              onChange={this.handleChange}
-            />
-          </div>
+        <div>
+          <label>Departamento ID:</label>
+          <input
+            type="text"
+            name="departamento_id"
+            value={formState.departamento_id}
+            onChange={handleChange}
+          />
+        </div>
 
-          <div>
-            <label>Municipio ID:</label>
-            <input
-              type="text"
-              name="municipio_id"
-              value={this.state.municipio_id}
-              onChange={this.handleChange}
-            />
-          </div>
-
-          <div>
-            <label>Estado:</label>
-            <input
-              type="text"
-              name="estado"
-              value={this.state.estado}
-              onChange={this.handleChange}
-            />
-          </div>
-
-          <button type="submit">Registrar</button>
-        </form>
-      </div>
-    );
-  }
-}
+        <div>
+          <label>Municipio ID:</label>
+          <input
+            type="text"
+            name="municipio_id"
+            value={formState.municipio_id}
+            onChange={handleChange}
+          />
+        </div>
+        <button type="submit">Registrar</button>
+      </form>
+    </div>
+  );
+};
 
 export default RegistroUsuario;

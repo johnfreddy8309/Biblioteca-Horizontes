@@ -1,13 +1,14 @@
 // Importamos las dependencias necesarias
 import React from 'react'; // Biblioteca principal de React
-import ReactDOM from 'react-dom/client'; // Herramientas para renderizar React en el DOM
+import { createRoot } from 'react-dom/client'; // Herramientas para renderizar React en el DOM
 import './index.css'; // Archivo de estilos globales
 import reportWebVitals from './reportWebVitals'; // Herramienta para medir el rendimiento de la aplicación
 import 'bootstrap/dist/css/bootstrap.min.css'; // Estilos de Bootstrap para usar componentes y clases predefinidas
 import App from './App'; // Componente principal de la aplicación
 
 // Creamos el punto de entrada para renderizar nuestra aplicación
-const root = ReactDOM.createRoot(document.getElementById('root')); // Selecciona el elemento con id "root" en el archivo HTML
+const container = document.getElementById('root'); // Selecciona el elemento con id "root" en el archivo HTML
+const root = createRoot(container); // Crea el punto de entrada con createRoot
 
 // Renderizamos la aplicación dentro del modo estricto de React
 root.render(

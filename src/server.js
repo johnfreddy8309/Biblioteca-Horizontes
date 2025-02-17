@@ -2,31 +2,34 @@ const express = require('express');
 const mysql = require('mysql');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-require('dotenv').config();
 
 const app = express();
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.use(cors());
 app.use(bodyParser.json());
 
 // Configurar conexión a base de datos
 const db = mysql.createConnection({
-    host: process.env.DB_HOST || 'localhost',
-    user: process.env.DB_USER || 'root',
-    password: process.env.DB_PASSWORD || 'adso',
-    database: process.env.DB_NAME || 'horizontes',
-    port: process.env.DB_PORT || 3306
+    host: 'localhost',
+    user: 'root',
+    password: 'adso',
+    database: 'db_horizontes',
+    port: 3306  
 });
 
 db.connect((err) => {
     if (err) {
         console.error('Error conectando a la base de datos:', err);
+        console.log('La aplicación no se pudo levantar.');
         return;
     }
-    console.log('Conectado a la base de datos MySQL.');
+    console.info('Conectado a la base de datos MySQL.');
 });
 
 // Ruta para registrar un nuevo usuario
-app.post('/api/registrar', (req, res) => {
+app.post('/registrar-usuario', (req, res) => {
     const {
         identificacion,
         tipo_identificacion_id,
@@ -46,8 +49,17 @@ app.post('/api/registrar', (req, res) => {
         return res.status(400).json({ message: 'Por favor, complete todos los campos obligatorios.' });
     }
 
-    const query = `INSERT INTO tb_usuarios (identificacion, tipo_identificacion_id, nombre_completo, telefono, celular, correo_electronico, contrasena, direccion, departamento_id, municipio_id, estado)
-                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+    const query = `INSERT INTO tb_usuarios (
+                    identificacion, 
+                    tipo_identificacion_id, 
+                    nombre_completo, 
+                    telefono, 
+                    celular, 
+                    correo_electronico, 
+                    contrasena, 
+                    direccion, 
+                    departamento_id, 
+                    municipio_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
 
     db.query(
         query,
@@ -69,7 +81,8 @@ app.use((err, req, res, next) => {
 });
 
 // Iniciar el servidor
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
-    console.log(`Servidor corriendo en el puerto ${PORT}`);
+    console.log(`Servidor corriendo en http://localhost:${PORT}`);
+    console.log('¡La aplicación se ha levantado con éxito!');
 });

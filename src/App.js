@@ -11,6 +11,7 @@ import RegistrarUsuario from "./components/RegistrarUsuario";
 import BuscarGeneroLiterario from "./components/BuscarGeneroLiterario";
 import Recomendaciones from "./components/Recomendaciones";
 import GaleriaLibros from "./components/GaleriaLibros";
+import Novedades from "./components/novedades";
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function Inicio() {
   return (
     <div className="bienvenido-container" style={{ textAlign: "center" }}>
       <h1>Bienvenidos a la Biblioteca Horizontes</h1>
+      <Novedades/>
       <p>Explora nuestro catálogo y encuentra tus géneros favoritos.</p>
       <img
         src={libro1}

@@ -210,3 +210,13 @@ a:hover {
 
 }
 
+.novedades {
+  margin-top: 20px;
+}
+
+.libro {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
