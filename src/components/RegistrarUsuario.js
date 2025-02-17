@@ -4,10 +4,9 @@ class RegistroUsuario extends Component {
   constructor(props) {
     super(props);
 
-    // Define el estado inicial con los campos requeridos para el formulario
     this.state = {
-      tipo_identificacion_id: '',
       identificacion: '',
+      tipo_identificacion_id: '',
       nombre_completo: '',
       telefono: '',
       celular: '',
@@ -19,24 +18,27 @@ class RegistroUsuario extends Component {
       estado: ''
     };
 
-    // Enlazar los métodos `handleChange` y `handleSubmit` al contexto de la clase
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  // Maneja cambios en los inputs del formulario
   handleChange(event) {
     const { name, value } = event.target;
     this.setState({ [name]: value });
   }
 
-  // Maneja el envío del formulario
   async handleSubmit(event) {
     event.preventDefault();
     console.log('Datos del formulario:', this.state);
 
+    // Validación básica de los campos del formulario
+    if (!this.state.identificacion || !this.state.nombre_completo || !this.state.correo_electronico || !this.state.contraseña) {
+      alert('Por favor, completa todos los campos obligatorios.');
+      return;
+    }
+
     try {
-      const response = await fetch('http://localhost:3001/registro', {
+      const response = await fetch('http://localhost:3000/registro', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -44,33 +46,25 @@ class RegistroUsuario extends Component {
         body: JSON.stringify(this.state)
       });
 
-    // Verificar si la solicitud fue exitosa
       if (response.ok) {
+        const data = await response.json();
+        console.log('Respuesta del servidor:', data);
         alert('Usuario registrado exitosamente');
       } else {
-        alert('Error al registrar el usuario');
+        const errorData = await response.json();
+        console.error('Error en la respuesta:', errorData);
+        alert(`Error al registrar el usuario: ${errorData.message}`);
       }
     } catch (error) {
-         // Manejar errores de conexión o problemas inesperados
-      console.error('Error:', error);
+      console.error('Error en la operación fetch:', error);
       alert('Error de conexión');
     }
   }
 
   render() {
-     // Renderizar el formulario
     return (
       <div className="centrar-formulario">
         <form className="formulario" onSubmit={this.handleSubmit}>
-          <div>
-            <label>Tipo Identificación:</label>
-            <input
-              type="text"
-              name="tipo_identificacion_id"
-              value={this.state.tipo_identificacion_id}
-              onChange={this.handleChange}
-            />
-          </div>
           <div>
             <label>Identificación:</label>
             <input
@@ -78,8 +72,21 @@ class RegistroUsuario extends Component {
               name="identificacion"
               value={this.state.identificacion}
               onChange={this.handleChange}
+              required
             />
           </div>
+
+          <div>
+            <label>Tipo Identificación:</label>
+            <input
+              type="text"
+              name="tipo_identificacion_id"
+              value={this.state.tipo_identificacion_id}
+              onChange={this.handleChange}
+              required
+            />
+          </div>
+
           <div>
             <label>Nombre Completo:</label>
             <input
@@ -87,8 +94,10 @@ class RegistroUsuario extends Component {
               name="nombre_completo"
               value={this.state.nombre_completo}
               onChange={this.handleChange}
+              required
             />
           </div>
+
           <div>
             <label>Teléfono:</label>
             <input
@@ -98,6 +107,7 @@ class RegistroUsuario extends Component {
               onChange={this.handleChange}
             />
           </div>
+
           <div>
             <label>Celular:</label>
             <input
@@ -107,6 +117,7 @@ class RegistroUsuario extends Component {
               onChange={this.handleChange}
             />
           </div>
+
           <div>
             <label>Correo Electrónico:</label>
             <input
@@ -114,8 +125,10 @@ class RegistroUsuario extends Component {
               name="correo_electronico"
               value={this.state.correo_electronico}
               onChange={this.handleChange}
+              required
             />
           </div>
+
           <div>
             <label>Contraseña:</label>
             <input
@@ -123,8 +136,10 @@ class RegistroUsuario extends Component {
               name="contraseña"
               value={this.state.contraseña}
               onChange={this.handleChange}
+              required
             />
           </div>
+
           <div>
             <label>Dirección:</label>
             <input
@@ -134,6 +149,7 @@ class RegistroUsuario extends Component {
               onChange={this.handleChange}
             />
           </div>
+
           <div>
             <label>Departamento ID:</label>
             <input
@@ -143,6 +159,7 @@ class RegistroUsuario extends Component {
               onChange={this.handleChange}
             />
           </div>
+
           <div>
             <label>Municipio ID:</label>
             <input
@@ -152,6 +169,7 @@ class RegistroUsuario extends Component {
               onChange={this.handleChange}
             />
           </div>
+
           <div>
             <label>Estado:</label>
             <input
@@ -161,6 +179,7 @@ class RegistroUsuario extends Component {
               onChange={this.handleChange}
             />
           </div>
+
           <button type="submit">Registrar</button>
         </form>
       </div>
