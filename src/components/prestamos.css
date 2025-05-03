@@ -1,0 +1,52 @@
+/* Formulario.css */
+.prestamos-container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.prestamos-container h2 {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.prestamos-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.prestamos-container label {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.prestamos-container input {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.prestamos-container button {
+  padding: 10px;
+  background-color: #e0bd85;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.prestamos-container button:hover {
+  background-color: #e0d5a4;
+}
+
+.mensaje {
+  text-align: center;
+  font-size: 16px;
+  color: #f44336;
+  margin-top: 20px;
+}

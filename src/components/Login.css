@@ -1,0 +1,72 @@
+.Login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  background-color: #f8f4ee;
+}
+
+.Login-box {
+  background: #fff;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 400px;
+}
+
+.Login-box h2 {
+  text-align: center;
+  color: #5a3814;
+  margin-bottom: 30px;
+}
+
+.Login-box input[type="text"],
+.Login-box input[type="password"] {
+  width: 100%;
+  padding: 12px 15px;
+  margin: 10px 0;
+  border: 1px solid #d1c7b7;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #fffaf4;
+}
+
+.Login-box input[type="text"]:focus,
+.Login-box input[type="password"]:focus {
+  outline: none;
+  border-color: #d19a2c;
+  background-color: #fffdf7;
+}
+
+.Login-box button {
+  width: 100%;
+  padding: 12px;
+  background: #d19a2c;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background 0.3s ease;
+}
+
+.Login-box button:hover {
+  background: #a6720d;
+}
+
+.Login-box p {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.login-box a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.Login-box a:hover {
+  text-decoration: underline;
+}

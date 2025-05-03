@@ -1,52 +1,86 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import './header.css'; // Para los estilos del submenú
+import React from "react";
+import { Link } from "react-router-dom";
+import "./Header.css";
 
 const Header = ({ onInicioClick }) => {
   return (
-    <header className="custom-header">
-      <div className="container">
-        <h1 className="display-4">Biblioteca Horizontes</h1>
+    <header className="custom-header py-3 shadow">
+      <div className="container d-flex flex-column flex-md-row justify-content-between align-items-center">
+        <h1 className="display-5 fw-bold text-white mb-3 mb-md-0">
+          <img
+            src={require("../assets/images/libro1.jpg")} // ajusta la ruta
+            alt="Logo de la biblioteca"
+            style={{
+              width: "180px",
+              height: "auto",
+              marginRight: "10px",
+
+              marginLeft: "-50px",
+              verticalAlign: "middle",
+            }}
+          />
+        </h1>
         <nav>
-          <ul className="nav nav-pills">
+          <ul className="nav nav-pills menu-text">
             <li className="nav-item dropdown">
-              <span className="nav-link text-white dropdown-toggle" role="button">
+            <Link className="nav-link text-white" to="/">
                 Inicio
+              </Link>
+              <span
+                className="nav-link text-white dropdown-toggle"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="true"
+              >
+                
               </span>
+
               <ul className="dropdown-menu">
                 <li>
-                  <Link className="dropdown-item" to="/" onClick={onInicioClick}>
-                    {/* Contenido del enlace */}
+                  <Link
+                    className="dropdown-item"
+                    to="/"
+                    onClick={onInicioClick}
+                  >
+                    Página principal
                   </Link>
                 </li>
                 <li>
-                  <Link className="dropdown-item" to="/registrar-usuario">Registrar Usuario</Link>
+                  <Link className="dropdown-item" to="/registrar-usuario">
+                    Registrar Usuario
+                  </Link>
                 </li>
                 <li>
-                  <Link className="dropdown-item" to="/buscar-generos">Buscar Géneros Literarios</Link>
+                  <Link className="dropdown-item" to="/buscar-generos">
+                    Buscar Géneros Literarios
+                  </Link>
                 </li>
               </ul>
             </li>
+
             <li className="nav-item">
-              <Link className="nav-link text-white" to="/Recomendaciones">Recomendaciones</Link>
+              <Link className="nav-link text-white" to="/recomendaciones">
+                Libros
+              </Link>
             </li>
+
             <li className="nav-item">
-              <Link className="nav-link text-white" to="/Novedades">Novedades</Link>
+              <Link className="nav-link text-white" to="/libros">
+                Ver Libros
+              </Link>
             </li>
+
             <li className="nav-item">
-              <Link className="nav-link text-white" to="/Categorias">Categorías</Link>
+              <Link className="nav-link text-white" to="/prestamos">
+                Mis préstamos
+              </Link>
             </li>
+
             <li className="nav-item">
-              <Link className="nav-link text-white" to="/Historial-busqueda">Historial de búsqueda</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link text-white" to="/Favoritos">Favoritos</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link text-white" to="/Configuracion">Configuración</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link text-white" to="/Cerrar">Cerrar</Link>
+              <Link className="nav-link text-white" to="/login">
+                Iniciar sesión
+              </Link>
+              
             </li>
           </ul>
         </nav>

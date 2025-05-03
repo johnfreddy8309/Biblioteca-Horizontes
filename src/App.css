@@ -2,7 +2,7 @@
 /* Estilo base para la aplicación */
 .App {
   font-family: 'Arial', sans-serif;
-  background-color: #f5f5f5;
+  background-color: white;
   margin: 10px; /* Añadir unidad de medida px */
   padding: 20px; /* Añadir unidad de medida px */
   text-align: center;
@@ -11,13 +11,13 @@
 
 /* Estilo del encabezado principal */
 .header {
-  background-color: #b3d9ff; /* Color de fondo azul claro */
-  color: #003366; /* Color del texto */
+  background-color: #7690aa; /* Color de fondo azul claro */
+  color: #e1e8ef; /* Color del texto */
   padding: 20px 10px; /* Espaciado interno */
   text-align: center;
   font-size: 2rem; /* Tamaño del texto */
   font-weight: bold; /* Negrita */
-  border-bottom: 2px solid #76a6eb; /* Línea decorativa debajo del encabezado */
+  border-bottom: 2px solid #446593; /* Línea decorativa debajo del encabezado */
 }
 /* Botón 'Bienvenido' */
 .btn-bienvenido {
@@ -37,7 +37,7 @@
 
 /* Efecto hover en el botón */
 .btn-bienvenido:hover {
-  background-color: #76a6eb;
+  background-color: #76a8ed;
 }
 
 /* Estilo para centrar el formulario */
@@ -46,7 +46,7 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #f5f5f5;
+  background-color: #e9e3d7 ;
   padding: 20px;
 }
 
@@ -56,9 +56,9 @@
   flex-direction: column;
   align-items: flex-start;
   padding: 20px;
-  background-color: #fff;
+  background-color: #e6e1c3;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
+  border-radius: 30px;
   width: 100%;
   max-width: 500px;
 }
@@ -73,7 +73,7 @@
 
 /* Estilo para las etiquetas del formulario */
 .formulario label {
-  margin-right: 8px;
+  margin-right: 10px;
   width: 150px;
   text-align: right;
   font-weight: bold;
@@ -93,7 +93,7 @@
 
 /* Estilo para el botón del formulario */
 .formulario button {
-  background-color: #003366;
+  background-color: #6199d1;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -152,7 +152,7 @@ main {
 }
 
 .formulario button {
-  background-color: #003366;
+  background-color: #5890c7;
   color: white;
   border: none;
   cursor: pointer;

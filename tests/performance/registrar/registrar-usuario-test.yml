@@ -1,0 +1,20 @@
+config:
+  target: "http://localhost:3000"
+  phases:
+    - duration: 30
+      arrivalRate: 5
+scenarios:
+  - flow:
+      - post:
+          url: "/api/usuarios"
+          json:
+            tipo_identificacion_id: 1
+            identificacion: "1234567890"
+            nombre_completo: "Juan Pérez"
+            telefono: "6040000000"
+            celular: "3001234567"
+            correo_electronico: "juan@example.com"
+            contrasena: "123456"
+            direccion: "Calle 123"
+            departamento_id: 1
+            municipio_id: 1

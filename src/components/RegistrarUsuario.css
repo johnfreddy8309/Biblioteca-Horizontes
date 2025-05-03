@@ -1,0 +1,79 @@
+/* Contenedor principal del formulario de autenticación */
+.auth-container {
+    display: flex; /* Usa flexbox para alinear los elementos hijos */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    min-height: 90vh; /* Ocupa al menos el 80% de la altura de la ventana */
+    background-color: #f8f4ee; /* Color de fondo suave */
+    padding: 20px; /* Espaciado interno */
+  }
+  
+  /* Caja blanca que contiene el formulario */
+  .auth-box {
+    background: #fff; /* Fondo blanco */
+    padding: 8px; /* Espaciado interno amplio */
+    border-radius: 16px; /* Bordes redondeados */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* Sombra sutil para dar profundidad */
+    width: 100%; /* Ocupa todo el ancho posible dentro del contenedor */
+    max-width: 600px; /* Máximo ancho de la caja */
+
+  }
+  
+  /* Título del formulario */
+  .auth-box h2 {
+    text-align: left; /* Centrado */
+    color: #5a3814; /* Color marrón oscuro */
+    margin-bottom: 30px; /* Espacio inferior */
+  }
+  
+  /* Etiquetas de los inputs */
+  .auth-box label {
+    font-weight: normal; /* Texto en negrita */
+    display: block; /* Ocupan una línea completa */
+    margin-top: 10px; /* Espacio superior */
+    text-align: left;
+    margin-left: 3vh;
+  }
+  
+  /* Estilos generales para los inputs y selects */
+  .auth-box input,
+  .auth-box select {
+    width: 90%; /* Ancho completo */
+    padding: 8px; /* Espaciado interno */
+    margin-top: 1px; /* Pequeño espacio arriba de cada input */
+    border: 1px solid #d1c7b7; /* Borde con color beige */
+    border-radius: 8px; /* Bordes redondeados */
+    font-size: 1rem; /* Tamaño de fuente estándar */
+    background-color: #fffaf4; /* Color de fondo claro */
+  }
+  
+  /* Efecto al enfocar un input o select */
+  .auth-box input:focus,
+  .auth-box select:focus {
+    outline: none; /* Quita el borde azul por defecto */
+    border-color: #d19a2c; /* Cambia el color del borde al enfocarse */
+    background-color: #fffdf7; /* Fondo un poco más claro al enfocarse */
+  }
+  
+  /* Estilo para el botón de enviar */
+  .auth-box button {
+    width: 90%; /* Ocupa todo el ancho */
+    padding: 8px; /* Espaciado interno */
+    background: #d19a2c; /* Color dorado */
+    border: none; /* Sin borde */
+    border-radius: 8px; /* Bordes redondeados */
+    color: #fff; /* Texto blanco */
+    font-size: 1rem; /* Tamaño de fuente estándar */
+    font-weight: bold; /* Texto en negrita */
+    cursor: pointer; /* Cursor en forma de mano al pasar */
+    margin-top: 25px; /* Espacio superior */
+    transition: background 0.3s ease; /* Transición suave para el color */
+    
+  }
+  
+  /* Efecto al pasar el mouse sobre el botón */
+  .auth-box button:hover {
+    background: #a6720d; /* Color más oscuro al hacer hover */
+  }
+ 
+  
