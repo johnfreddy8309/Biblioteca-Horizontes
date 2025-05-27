@@ -15,7 +15,7 @@ import Novedades from "./components/Novedades";
 import Login from "./components/Login";
 import Prestamos from "./components/Prestamos";
 import Libro from "./components/Libro";
-
+import MisPrestamos from "./components/MisPrestamos";
 
 function App() {
   return (
@@ -41,6 +41,8 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/prestamos" element={<Prestamos/>} />
             <Route path="/libro/:id" element={<Libro />} />
+            <Route path="/libro" element={<Libro />} />    
+            <Route path="/mis-prestamos" element={<MisPrestamos/>} />
            
            
             {/* Agrega más rutas según sea necesario */}

@@ -29,7 +29,7 @@ const RegistroUsuario = () => {
     const cargarTiposIdentificacion = async () => {
       try {
         const response = await fetch(
-          "http://localhost:3001/tipos-identificacion"
+          "http://localhost:3001/api/tipos-identificacion"
         );
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
@@ -49,7 +49,7 @@ const RegistroUsuario = () => {
     const cargarDepartamentos = async () => {
       try {
         const response = await fetch(
-          "http://localhost:3001/departamentos"
+          "http://localhost:3001/api/departamentos"
         );
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
@@ -69,7 +69,7 @@ const RegistroUsuario = () => {
       if (formState.departamento_id) {
         try {
           const response = await fetch(
-            `http://localhost:3001/municipios?id=${formState.departamento_id}`
+            `http://localhost:3001/api/municipios?id=${formState.departamento_id}`
           );
           if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
@@ -119,7 +119,7 @@ const RegistroUsuario = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:3001/registrar-usuario", {
+      const response = await fetch("http://localhost:3001/api/registrar-usuario", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -1,18 +1,20 @@
 //routes/prestamos.js
 const express = require('express');
-const router = express.Router();
-const db = require('../config/db');
+const router = express.Router('src/routes/prestamos.js');
+const db = require('../../src/config/db');
+const  {  obtenerMisPrestamos} = require('../controllers/prestamos');
+
+router.get('/mis-prestamos', obtenerMisPrestamos);
+
 
 // Ruta POST para insertar prestamos
 router.post('/prestamos', (req, res) => {
     const { titulo, autor, fechaPrestamo, fechaDevolucion} = req.body;
 
-
 // Validar que los campos no estén vacíos
     if  (!titulo || !autor || !fechaPrestamo || !fechaDevolucion) {
         return res.status(400).json({ error: 'Todos los campos son obligatorios' });
     }
-
 //Crear la consulta sql para insertar el prestamo
 
 const query = 'INSERT INTO tb_prestamos (titulo, autor, fechaPrestamo, fechaDevolucion) VALUES (?, ?, ?, ?)';

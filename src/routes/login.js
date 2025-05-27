@@ -1,7 +1,6 @@
 // src/routes/login.js
 const express = require('express');
 const jwt = require('jsonwebtoken');
-const bcrypt = require('bcrypt');
 const router = express.Router();
 const db = require('../config/db'); // ya conectado
 
@@ -22,11 +21,11 @@ router.post('/login', (req, res) => {
         const usuario = results[0];
 
         // Validar contraseña
-        const contrasenaValida = await bcrypt.compare(contrasena, usuario.contrasena);
-
-        if (!contrasenaValida) {
-            return res.status(401).json({ error: 'Contraseña incorrecta' });
-        }
+       // const isPasswordValid = await bcrypt.compare(contrasena, usuario.contrasena);
+       if (contrasena !== usuario.contrasena) {
+  return res.status(401).json({ error: 'Contraseña incorrecta' });
+}
+        
 
         // Crear token
         const token = jwt.sign(

@@ -59,20 +59,26 @@ const Header = ({ onInicioClick }) => {
             </li>
 
             <li className="nav-item">
-              <Link className="nav-link text-white" to="/recomendaciones">
-                Libros
+              <Link className="nav-link text-white" to="/libro">
+                Libro
               </Link>
             </li>
 
             <li className="nav-item">
-              <Link className="nav-link text-white" to="/libros">
-                Ver Libros
+              <Link className="nav-link text-white" to="/verLibro">
+                Ver Libro
               </Link>
             </li>
 
             <li className="nav-item">
               <Link className="nav-link text-white" to="/prestamos">
-                Mis préstamos
+                 préstamos
+              </Link>
+            </li>
+
+            <li className="nav-item">
+              <Link className="nav-link text-white" to="/mis-prestamos">
+                mis préstamos
               </Link>
             </li>
 

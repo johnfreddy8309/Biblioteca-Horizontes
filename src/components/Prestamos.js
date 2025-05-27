@@ -36,7 +36,7 @@ const Prestamos = () => {
 // Enviar la solicitud POST al servidor
     try {
       // Enviar la solicitud POST al servidor
-      const response = await fetch("http://localhost:3001/prestamos", {
+      const response = await fetch("http://localhost:3001/api/prestamos", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

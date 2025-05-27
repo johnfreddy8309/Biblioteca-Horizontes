@@ -22,16 +22,24 @@ const Login = () => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ correo, contrasena }),
+      body: JSON.stringify({ 
+        correo:correo,
+        contrasena: contrasena
+       }),
     });
+
+    
 
     const data = await response.json();
 
     if (response.status === 200) {
+      alert("Inicio de sesión exitoso");
       localStorage.setItem("token", data.token); // Guardar el token en el almacenamiento local
-      window.location.href = "/home"; // Redirigir a la página de inicio
+      window.location.href = "http://localhost:3000"; // Redirigir a la página de inicio
     } else {
+    
       setError(data.error || "Error al iniciar sesión");
+       
     }
   } catch (error) {
     setError("Error de conexión al servidor");
