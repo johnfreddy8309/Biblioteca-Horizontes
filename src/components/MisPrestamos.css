@@ -3,9 +3,9 @@
 
 .prestamos-container {
     max-width: 700px;
-    margin: 3rem auto;
+    margin: 4rem auto;
     padding: 2rem;
-    background-color: #f0e5d9;
+    background-color: #f8f4ee;
     border-radius: 2rem;
     box-shadow: 8 8 10px rgba(0, 0, 0, 0.1);
 }
@@ -33,7 +33,7 @@
 }
 
 .btn-buscar {
-    background-color: #eec48c;
+    background-color: #d19a2c;
     color: rgb(238, 201, 153);
     border: none;
     padding: 0.5rem 1rem;
@@ -43,7 +43,7 @@
 }
 
 .btn-buscar:hover {
-    background-color: #000000;
+    background-color: #a6720d;
 }
 
 .mensaje-error {

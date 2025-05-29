@@ -65,9 +65,13 @@ const Header = ({ onInicioClick }) => {
             </li>
 
             <li className="nav-item">
-              <Link className="nav-link text-white" to="/verLibro">
+              <Link className="nav-link text-white" to="/ver-Libro">
                 Ver Libro
               </Link>
+             
+
+            
+            
             </li>
 
             <li className="nav-item">
@@ -86,6 +90,8 @@ const Header = ({ onInicioClick }) => {
               <Link className="nav-link text-white" to="/login">
                 Iniciar sesión
               </Link>
+             
+
               
             </li>
           </ul>

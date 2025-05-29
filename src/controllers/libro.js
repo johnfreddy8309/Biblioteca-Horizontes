@@ -1,6 +1,8 @@
 
 const db = require('../config/db'); // aqui conectamos con nuestra base de dat
 // obtener todos los libro
+
+
 const obtenerLibro = (req, res) => {
     db.query('SELECT id, titulo, autor, isbn, editorial_id FROM tb_libro ', (err, results) => {
         if (err) return res.status(500).json({error: 'Error al obtener libro'});

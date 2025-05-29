@@ -4,7 +4,7 @@
     justify-content: center; /* Centra horizontalmente */
     align-items: center; /* Centra verticalmente */
     min-height: 90vh; /* Ocupa al menos el 80% de la altura de la ventana */
-    background-color: #f8f4ee; /* Color de fondo suave */
+    background-color:#f8f4ee; /* Color de fondo suave */
     padding: 20px; /* Espaciado interno */
   }
   

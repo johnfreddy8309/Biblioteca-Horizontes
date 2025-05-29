@@ -37,7 +37,7 @@ const Libro = () => {
 
   return (
     <div className="registro-container">
-      <h2 className="registro-title">📚 Registrar Libro</h2>
+      <h2 className="registro-title"> Registrar Libro</h2>
       <form onSubmit={handleSubmit} className="registro-form">
         <input
           type="text"

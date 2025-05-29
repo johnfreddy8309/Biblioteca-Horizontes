@@ -2,7 +2,7 @@
   max-width: 400px;
   margin: 2.5rem auto;
   padding: 1.5rem;
-  background-color: #f0e5d9; 
+  background-color:#f8f4ee; 
   border-radius: 1rem;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
@@ -30,7 +30,7 @@
 
 .registro-button {
   width: 100%;
-  background-color: #eec48c;
+  background-color: #d19a2c;
   color: white;
   padding: 0.5rem;
   border: none;
@@ -40,5 +40,5 @@
 }
 
 .registro-button:hover {
-  background-color: #e0c6a3;
+  background-color: #a6720d;
 }

@@ -10,6 +10,7 @@ const municipiosRoutes = require('./routes/municipios');
 const prestamosRoutes = require('./routes/prestamos');
 const loginRoutes = require('./routes/login');
 const libroRoutes = require('./routes/libro');
+
 const errorHandler = require('./middlewares/errores');
 
 require('dotenv').config(); // Cargar variables de entorno
@@ -28,7 +29,6 @@ app.use('/api', municipiosRoutes);
 app.use('/api', prestamosRoutes);
 app.use('/api', loginRoutes);
 app.use('/api', libroRoutes);
-
 
 // Middleware de errores
 app.use(errorHandler);

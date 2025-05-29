@@ -3,7 +3,7 @@
   max-width: 500px;
   margin: 0 auto;
   padding: 20px;
-  background-color: #f9f9f9;
+  background-color: #f8f4ee;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -33,7 +33,7 @@
 
 .prestamos-container button {
   padding: 10px;
-  background-color: #e0bd85;
+  background-color: #d19a2c;
   color: white;
   border: none;
   border-radius: 4px;
@@ -41,7 +41,7 @@
 }
 
 .prestamos-container button:hover {
-  background-color: #e0d5a4;
+  background-color:#a6720d;
 }
 
 .mensaje {

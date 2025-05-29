@@ -16,6 +16,7 @@ import Login from "./components/Login";
 import Prestamos from "./components/Prestamos";
 import Libro from "./components/Libro";
 import MisPrestamos from "./components/MisPrestamos";
+import VerLibro from "./components/VerLibro"; // Asegúrate de que este componente exista
 
 function App() {
   return (
@@ -43,7 +44,7 @@ function App() {
             <Route path="/libro/:id" element={<Libro />} />
             <Route path="/libro" element={<Libro />} />    
             <Route path="/mis-prestamos" element={<MisPrestamos/>} />
-           
+           <Route path="/ver-libro" element={<VerLibro />} />
            
             {/* Agrega más rutas según sea necesario */}
           </Routes>
